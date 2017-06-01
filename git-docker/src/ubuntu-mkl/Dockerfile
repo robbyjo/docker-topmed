@@ -2,6 +2,7 @@
 # License: GPL-3.0
 
 FROM ubuntu:14.04.5
+MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 
 # Get required dependencies for MKL
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install gcc g++ gfortran wget
