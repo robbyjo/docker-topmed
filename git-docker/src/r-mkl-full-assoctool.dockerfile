@@ -20,9 +20,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install netcdf-bin libnetcdf-dev l
   echo "pkgs <- read.csv('/home/pkgs.txt', header=FALSE, as.is=TRUE)[,1];" > instpkgs.R && \
   echo "print(pkgs);" >> instpkgs.R && \
   echo "install.packages(pkgs, repos='https://mirrors.nics.utk.edu/cran/', clean=TRUE, INSTALL_opts='--no-docs --no-demo --byte-compile');" >> instpkgs.R && \
-  echo "cat('\n\n\n\n\n\nsessionInfo:');" >> instpkgs.R && \
+  echo "cat('\n\n\n\n\n\nsessionInfo:\n');" >> instpkgs.R && \
   echo "print(sessionInfo());" >> instpkgs.R && \
-  echo "cat('\n\n\n\n\n\nInstalled packages:');" >> instpkgs.R && \
+  echo "cat('\n\n\n\n\n\nInstalled packages:\n');" >> instpkgs.R && \
   echo "print(installed.packages()[,3, drop=FALSE]);" >> instpkgs.R && \
   Rscript --vanilla /home/instpkgs.R && \
   rm -Rf /home/* && \
