@@ -4,7 +4,7 @@
 FROM ubuntu:16.04
 MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install gcc g++ gfortran wget && \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install gcc g++ gfortran wget cpio && \
   cd /tmp && \
   wget -q http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/11544/l_mkl_2017.3.196.tgz && \
   tar -xzf l_mkl_2017.3.196.tgz && \
