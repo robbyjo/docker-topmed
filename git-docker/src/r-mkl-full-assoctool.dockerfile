@@ -25,10 +25,5 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install netcdf-bin libnetcdf-dev l
   echo "cat('\n\n\n\n\n\nInstalled packages:\n');" >> instpkgs.R && \
   echo "print(installed.packages()[,3, drop=FALSE]);" >> instpkgs.R && \
   Rscript --vanilla /home/instpkgs.R && \
-  rm -Rf /home/* && \
-  cd /home && \
-  wget -O assoctool.zip --no-check-certificate -q https://github.com/robbyjo/assoctool/archive/22ea4b6.zip && \
-  unzip assoctool.zip && \
-  mv assoctool-* assoctool && \
-  mv assoctool/resources/home/dnanexus/* assoctool/ && \
-  rm -Rf /home/assoctool/resources /home/assoctool/src
+  rm -Rf /home/*
+  
