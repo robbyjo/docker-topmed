@@ -23,9 +23,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential libbz2-1.0
   ./configure --enable-pcre16 --enable-pcre32 --enable-jit --enable-utf --enable-pcregrep-libz --enable-pcregrep-libbz2 --enable-pcretest-libreadline && \
   make && make install && cd /home && rm -rf /home/pcre-8.40* && \
   ln -sf /opt/intel/lib/intel64/libiomp*.so /usr/lib && cd /home && \
-  wget --no-check-certificate -q https://cran.r-project.org/src/base/R-3/R-3.4.0.tar.gz && \
-  tar -zxf R-3.4.0.tar.gz && \
-  cd /home/R-3.4.0 && \
+  wget --no-check-certificate -q https://cran.r-project.org/src/base/R-3/R-3.4.1.tar.gz && \
+  tar -zxf R-3.4.1.tar.gz && \
+  cd /home/R-3.4.1 && \
   export MKLROOT="/opt/intel/compilers_and_libraries_2017.4.196/linux" && \
   export LD_LIBRARY_PATH="${MKLROOT}/tbb/lib/intel64_lin/gcc4.7:${MKLROOT}/compiler/lib/intel64_lin:${MKLROOT}/mkl/lib/intel64_lin" && \
   export LIBRARY_PATH="$LD_LIBRARY_PATH" && \
@@ -35,6 +35,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential libbz2-1.0
   export NLSPATH="${MKLROOT}/mkl/lib/intel64_lin/locale/%l_%t/%N" && \
   export MKL="-L${MKLROOT}/mkl/lib/intel64 -Wl,--no-as-needed -lmkl_gf_lp64 -lmkl_intel_thread -lmkl_core -liomp5 -lpthread -lm -ldl" && \
   ./configure CFLAGS="-g -O3" CPPFLAGS="-g -O3" FFLAGS="-g -O3" FCFLAGS="-g -O3 -m64 -I${MKLROOT}/mkl/include" --prefix=/opt/R --enable-R-shlib --enable-shared --enable-R-profiling --enable-memory-profiling --disable-java --with-blas="$MKL" --with-lapack && \
-  make && make install && cd /home && rm -Rf /home/R-3.4.0* && \
+  make && make install && cd /home && rm -Rf /home/R-3.4.1* && \
   ln -s /opt/R/bin/R /usr/bin/R && \
   ln -s /opt/R/bin/Rscript /usr/bin/Rscript
