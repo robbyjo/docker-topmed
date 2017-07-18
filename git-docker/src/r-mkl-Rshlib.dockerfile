@@ -10,7 +10,8 @@ MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 #RUN DEBIAN_FRONTEND=noninteractive apt-get -y remove libblas3 libblas-dev
 
 # Leaner R because tex is not installed
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential libbz2-1.0 \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+  DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential libbz2-1.0 \
   libbz2-dev libjpeg-dev libncurses5-dev libpcre3-dev libpng-dev libreadline-dev \
   zlib1g-dev libcurl4-openssl-dev libcairo2 libcairo2-dev libglib2.0-0 libgomp1 libjpeg8 liblzma5 \
   libpango-1.0-0 libpangocairo-1.0-0 libpaper-utils libpng12-0 libreadline6 \
