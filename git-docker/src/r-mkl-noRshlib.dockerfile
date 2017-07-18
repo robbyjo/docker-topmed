@@ -16,7 +16,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   zlib1g-dev libcurl4-openssl-dev libcairo2 libcairo2-dev libglib2.0-0 libgomp1 libjpeg8 liblzma5 \
   libpango-1.0-0 libpangocairo-1.0-0 libpaper-utils libpng12-0 libreadline6 \
   libtcl8.5 libtiff5 libtk8.5 libx11-6 libxt6 tcl8.5 tk8.5 ucf unzip xdg-utils zip zlib1g \
-  libx11-dev xorg-dev liblzma-dev libicu-dev libtiff5 libtiff5-dev && \
+  libx11-dev xorg-dev liblzma-dev libicu-dev libtiff5 libtiff5-dev sysstat && \
 # Instead of relying on Ubuntu Trusty's libpcre 8.31 (which is deemed obsolete by R),
 # Try to install 8.40 manually
   cd /home && wget -q ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.40.tar.gz && \
