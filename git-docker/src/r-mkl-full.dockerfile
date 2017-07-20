@@ -11,6 +11,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get -y remove libblas3 libblas-dev && \
 # Instead of relying on Ubuntu Trusty's libpcre 8.31 (which is deemed obsolete by R),
 # Try to install 8.40 manually
+  sed -e "s/false/true/g" /etc/default/sysstat > /etc/default/sysstat.bak && \
+  mv /etc/default/sysstat.bak /etc/default/sysstat && \
+  /etc/init.d/sysstat start && \
   cd /home && wget -q ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.40.tar.gz && \
   tar -zxf pcre-8.40.tar.gz && cd pcre-8.40 && \
   ./configure --enable-pcre16 --enable-pcre32 --enable-jit --enable-utf --enable-pcregrep-libz --enable-pcregrep-libbz2 --enable-pcretest-libreadline && \
