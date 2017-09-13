@@ -2,10 +2,10 @@
 # License: GPL-3.0
 # ./install.sh -d to record options
 
-FROM ubuntu:14.04.5
+FROM ubuntu:16.04
 MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install gcc g++ gfortran wget && \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install gcc g++ gfortran wget cpio && \
   cd /tmp && \
   wget -q http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12070/l_mkl_2018.0.128.tgz && \
   tar -xzf l_mkl_2018.0.128.tgz && \
