@@ -2,7 +2,7 @@
 # License: GPL-3.0
 
 
-FROM robbyjo/r-mkl-assoctool:3.4.1
+FROM robbyjo/r-mkl-assoctool:3.4.1-16.04-2018.0
 MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 
 RUN cd /home && \
