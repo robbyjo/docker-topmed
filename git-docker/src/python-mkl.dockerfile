@@ -13,9 +13,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   libavformat-dev libswscale-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev yasm \
   libopencore-amrnb-dev libopencore-amrwb-dev libv4l-dev libxine2-dev libtbb-dev libeigen3-dev \
   ant default-jdk doxygen && \
-  pip --no-cache-dir install Cython && \
+  pip install --upgrade pip && pip --no-cache-dir install Cython && \
   cd /tmp && wget --no-check-certificate -q https://github.com/numpy/numpy/releases/download/v1.13.1/numpy-1.13.1.tar.gz && \
-  cd numpy-1.13.1 && cp site.cfg.example site.cfg && \
+  tar -xzf numpy-1.13.1.tar.gz && cd numpy-1.13.1 && cp site.cfg.example site.cfg && \
   echo "\n[mkl]" >> site.cfg && \
   echo "include_dirs = /opt/intel/mkl/include/intel64/" >> site.cfg && \
   echo "library_dirs = /opt/intel/mkl/lib/intel64/" >> site.cfg && \
@@ -25,7 +25,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   python setup.py install && \
   cd .. && rm -rf * && \
   cd /tmp && wget --no-check-certificate -q https://github.com/scipy/scipy/releases/download/v0.19.1/scipy-0.19.1.tar.gz && \
-  cd scipy-0.19.1 && python setup.py build && python setup.py install && \
+  tar -xzf scipy-0.19.1.tar.gz && cd scipy-0.19.1 && python setup.py build && python setup.py install && \
   cd .. && rm -rf * && \
   pip --no-cache-dir install pyopenssl ndg-httpsclient pyasn1 nose h5py ipykernel jupyter path.py Pillow pygments six sphinx wheel zmq && \
   python -m ipykernel.kernelspec && \
