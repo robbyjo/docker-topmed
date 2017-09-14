@@ -13,9 +13,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   libavformat-dev libswscale-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev yasm \
   libopencore-amrnb-dev libopencore-amrwb-dev libv4l-dev libxine2-dev libtbb-dev libeigen3-dev \
   ant default-jdk doxygen && \
-  sed -e "s/false/true/g" /etc/default/sysstat > /etc/default/sysstat.bak && \
-  mv /etc/default/sysstat.bak /etc/default/sysstat && \
-  /etc/init.d/sysstat start && \
   pip --no-cache-dir install Cython && \
   cd /tmp && wget --no-check-certificate -q https://github.com/numpy/numpy/releases/download/v1.13.1/numpy-1.13.1.tar.gz && \
   cd numpy && cp site.cfg.example site.cfg && \
