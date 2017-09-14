@@ -16,9 +16,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   sed -e "s/false/true/g" /etc/default/sysstat > /etc/default/sysstat.bak && \
   mv /etc/default/sysstat.bak /etc/default/sysstat && \
   /etc/init.d/sysstat start && \
-  pip --no-cache-dir install Cython &&
+  pip --no-cache-dir install Cython && \
   cd /tmp && wget --no-check-certificate -q https://github.com/numpy/numpy/releases/download/v1.13.1/numpy-1.13.1.tar.gz && \
-  cd numpy && cp site.cfg.example site.cfg &&
+  cd numpy && cp site.cfg.example site.cfg && \
   echo "\n[mkl]" >> site.cfg && \
   echo "include_dirs = /opt/intel/mkl/include/intel64/" >> site.cfg && \
   echo "library_dirs = /opt/intel/mkl/lib/intel64/" >> site.cfg && \
@@ -29,8 +29,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   cd .. && rm -rf * && \
   cd /tmp && wget --no-check-certificate -q https://github.com/scipy/scipy/releases/download/v0.19.1/scipy-0.19.1.tar.gz && \
   cd scipy && python setup.py build && python setup.py install && \
-  cd .. && rm -rf * \
+  cd .. && rm -rf * && \
   pip --no-cache-dir install pyopenssl ndg-httpsclient pyasn1 nose h5py ipykernel jupyter path.py Pillow pygments six sphinx wheel zmq && \
-  python -m ipykernel.kernelspec \
+  python -m ipykernel.kernelspec && \
   DEBIAN_FRONTEND=noninteractive apt-get -y install python-skimage python-matplotlib python-pandas python-sklearn python-sympy && \
   apt-get clean && apt-get autoremove
