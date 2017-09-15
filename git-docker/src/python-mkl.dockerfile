@@ -18,5 +18,5 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   conda update -y anaconda && \
   conda update -y mkl && \
   conda install -y numpy scipy matplotlib networkx scikit-learn jupyter blist bokeh blaze cython \
-  statsmodels ncurses seaborn dask flask markdown sympy numexpr pandas path.py pytments six sphinx wheel nose h5py ipykernel && \
+  statsmodels ncurses seaborn dask flask markdown sympy numexpr pandas path.py pygments six sphinx wheel nose h5py ipykernel && \
   apt-get clean && apt-get autoremove
