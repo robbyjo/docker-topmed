@@ -18,5 +18,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   conda update -y anaconda && \
   conda update -y mkl && \
   conda install -y numpy scipy matplotlib networkx scikit-learn jupyter blist bokeh blaze cython \
-  statsmodels ncurses seaborn dask flask markdown sympy numexpr pandas path.py pygments six sphinx wheel nose h5py ipykernel && \
+  statsmodels ncurses seaborn dask flask markdown sympy numexpr pandas path.py pygments six sphinx \
+  wheel nose h5py ipykernel pydot-ng theano networkx pyyaml quandl pymongo && \
+  pip install https://anaconda.org/intel/tensorflow/1.2.1/download/tensorflow-1.2.1-cp35-cp35m-linux_x86_64.whl \
   apt-get clean && apt-get autoremove
