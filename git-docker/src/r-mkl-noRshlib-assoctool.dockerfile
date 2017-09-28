@@ -2,7 +2,7 @@
 # License: GPL-3.0
 
 
-FROM robbyjo/r-mkl:3.4.1-16.04-2018.0
+FROM robbyjo/r-mkl:3.4.2-16.04-2018.0
 MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install netcdf-bin libnetcdf-dev libxml2-dev ed libssh2-1-dev && \
