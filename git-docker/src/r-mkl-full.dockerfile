@@ -7,7 +7,7 @@ MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 # Easier way to build R dependencies are below, but this will result in a bulky build.
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get -y build-dep r-base-dev && \
-  DEBIAN_FRONTEND=noninteractive apt-get -y install libcurl4-openssl-dev sysstat && \
+  DEBIAN_FRONTEND=noninteractive apt-get -y install libcurl4-openssl-dev sysstat libssl-dev && \
   DEBIAN_FRONTEND=noninteractive apt-get -y remove libblas3 libblas-dev && \
 # Instead of relying on Ubuntu Trusty's libpcre 8.31 (which is deemed obsolete by R),
 # Try to install 8.40 manually
