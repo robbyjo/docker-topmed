@@ -1,7 +1,7 @@
 # By Roby Joehanes
 # License: GPL-3.0
 
-FROM robbyjo/ubuntu-mkl:14.04.5-2017.3
+FROM robbyjo/ubuntu-mkl:16.04.5-2018.0
 MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 
 # Easier way to build R dependencies are below, but this will result in a bulky build.
