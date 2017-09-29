@@ -28,7 +28,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install netcdf-bin libnetcdf-dev l
   echo "b <- !(pkgs %in% rownames(tbl));" >> instpkgs.R && \
   echo "if (sum(b) > 0) {" >> instpkgs.R && \
   echo "    cat('\n\n\n\n\n\nThe following packages were not installed:\n');" >> instpkgs.R && \
-  echo "    print(tbl[b, ]);" >> instpkgs.R && \
+  echo "    print(pkgs[b]);" >> instpkgs.R && \
   echo "} else {" >> instpkgs.R && \
   echo "    cat('\n\n\n\n\n\nAll intended packages were installed!\n');" >> instpkgs.R && \
   echo "}" >> instpkgs.R && \
