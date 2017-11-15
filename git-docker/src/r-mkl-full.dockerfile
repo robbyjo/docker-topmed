@@ -1,7 +1,7 @@
 # By Roby Joehanes
 # License: GPL-3.0
 
-FROM robbyjo/ubuntu-mkl:16.04-2018.0
+FROM robbyjo/ubuntu-mkl:16.04-2018.1
 MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 
 # Easier way to build R dependencies are below, but this will result in a bulky build.
@@ -22,7 +22,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   wget --no-check-certificate -q https://cran.r-project.org/src/base/R-3/R-3.4.2.tar.gz && \
   tar -zxf R-3.4.2.tar.gz && \
   cd /home/R-3.4.2 && \
-  export MKLROOT="/opt/intel/compilers_and_libraries_2018.0.128/linux" && \
+  export MKLROOT="/opt/intel/compilers_and_libraries_2018.1.163/linux" && \
   export LD_LIBRARY_PATH="${MKLROOT}/tbb/lib/intel64_lin/gcc4.7:${MKLROOT}/compiler/lib/intel64_lin:${MKLROOT}/mkl/lib/intel64_lin" && \
   export LIBRARY_PATH="$LD_LIBRARY_PATH" && \
   export MIC_LD_LIBRARY_PATH="${MKLROOT}/tbb/lib/intel64_lin_mic:${MKLROOT}/compiler/lib/intel64_lin_mic:${MKLROOT}/mkl/lib/intel64_lin_mic" && \
