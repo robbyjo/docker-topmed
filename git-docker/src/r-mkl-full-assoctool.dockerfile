@@ -5,7 +5,7 @@
 FROM robbyjo/r-mkl-full:3.4.2-16.04-2018.1
 MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install netcdf-bin libnetcdf-dev libxml2-dev ed libssh2-1-dev zip unzip && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install netcdf-bin libnetcdf-dev libxml2-dev ed libssh2-1-dev zip unzip libmariadb-client-lgpl-dev && \
   cd /home && \
   wget -q http://ab-initio.mit.edu/nlopt/nlopt-2.4.2.tar.gz && \
   tar -zxf nlopt-2.4.2.tar.gz && \
