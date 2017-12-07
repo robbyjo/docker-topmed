@@ -2,7 +2,7 @@
 # License: GPL-3.0
 
 
-FROM robbyjo/r-mkl-full:3.4.2-16.04-2018.1
+FROM robbyjo/r-mkl-full:3.4.3-16.04-2018.1
 MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install netcdf-bin libnetcdf-dev libxml2-dev ed libssh2-1-dev zip unzip libmariadb-client-lgpl-dev && \
