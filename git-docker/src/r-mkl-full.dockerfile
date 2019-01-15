@@ -5,7 +5,7 @@ FROM robbyjo/ubuntu-mkl:18.04-2019.1
 MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 
 # Easier way to build R dependencies are below, but this will result in a bulky build.
-RUN sudo sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list && \
+RUN sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list && \
   DEBIAN_FRONTEND=noninteractive apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get -y build-dep r-base-dev && \
   DEBIAN_FRONTEND=noninteractive apt-get -y install libcurl4-openssl-dev sysstat libssl-dev && \
