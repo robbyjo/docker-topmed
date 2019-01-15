@@ -8,7 +8,7 @@ MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install netcdf-bin libnetcdf-dev libxml2-dev ed libssh2-1-dev zip unzip libicu-dev libmariadb-client-lgpl-dev && \
   cd /home && \
   wget -q https://github.com/stevengj/nlopt/archive/v2.5.0.tar.gz && \
-  tar -zxf nlopt-2.5.0.tar.gz && \
+  tar -zxf v2.5.0.tar.gz && \
   cd nlopt-2.5.0 && \
   ./configure CFLAGS="-g -O3 -fPIC" CXXFLAGS="-g -O3 -fPIC" --enable-shared && make && make install && \
   cd /home && rm -rf nlopt-* && \
