@@ -2,7 +2,7 @@
 # License: GPL-3.0
 
 
-FROM robbyjo/r-mkl-full-assoctool:3.4.3-16.04-2018.1
+FROM robbyjo/r-mkl-full-assoctool:3.5.2-18.04-2019.1
 MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 
 RUN cd /home && \
@@ -12,6 +12,9 @@ RUN cd /home && \
   echo 'source("https://bioconductor.org/biocLite.R")' >> instpkgs.R && \
   echo "biocLite(pkgs, clean=TRUE, INSTALL_opts='--no-docs --no-demo --byte-compile');" >> instpkgs.R && \
   echo "biocLite(ask=FALSE, clean=TRUE, INSTALL_opts='--no-docs --no-demo --byte-compile');" >> instpkgs.R && \
+  echo "cat('\n\n\n\n\n\nGet the latest greatest gdsfmt / SeqArray:\n');" >> instpkgs.R && \
+  echo "install_github("zhengxwen/gdsfmt");" >> instpkgs.R && \
+  echo "install_github("zhengxwen/SeqArray");" >> instpkgs.R && \
   echo "cat('\n\n\n\n\n\nsessionInfo:\n');" >> instpkgs.R && \
   echo "print(sessionInfo());" >> instpkgs.R && \
   echo "cat('\n\n\n\n\n\nInstalled packages:\n');" >> instpkgs.R && \
