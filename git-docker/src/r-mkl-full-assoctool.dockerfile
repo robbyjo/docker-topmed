@@ -10,7 +10,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install cmake netcdf-bin libnetcdf
   wget -q https://github.com/stevengj/nlopt/archive/v2.5.0.tar.gz && \
   tar -zxf v2.5.0.tar.gz && \
   cd nlopt-2.5.0 && \
-  cmake -DCMAKE_CXX_FLAGS="-g -O3 -fPIC" CXXFLAGS="-g -O3 -fPIC" && make && make install && \
+  cmake -DCMAKE_CXX_FLAGS="-g -O3 -fPIC" && make && make install && \
   cd /home && rm -rf nlopt-* && \
   wget --no-check-certificate -q https://cran.r-project.org/src/contrib/Archive/kinship/kinship_1.1.3.tar.gz && \
   R CMD INSTALL --no-docs --no-demo --byte-compile kinship_1.1.3.tar.gz && \
