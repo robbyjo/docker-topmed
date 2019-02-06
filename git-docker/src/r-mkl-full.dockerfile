@@ -8,7 +8,7 @@ MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 RUN sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list && \
   DEBIAN_FRONTEND=noninteractive apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get -y build-dep r-base-dev && \
-  DEBIAN_FRONTEND=noninteractive apt-get -y install libcurl4-openssl-dev sysstat libssl-dev && \
+  DEBIAN_FRONTEND=noninteractive apt-get -y install libcurl4-openssl-dev sysstat libssl-dev  cmake netcdf-bin libnetcdf-dev libxml2-dev ed libssh2-1-dev zip unzip libicu-dev libmariadb-client-lgpl-dev && \
   DEBIAN_FRONTEND=noninteractive apt-get -y remove libblas3 libblas-dev && \
 # Instead of relying on Ubuntu Trusty's libpcre 8.31 (which is deemed obsolete by R),
 # Try to install 8.42 manually
@@ -34,4 +34,13 @@ RUN sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list && \
   ./configure CFLAGS="-g -O3" CPPFLAGS="-g -O3" FFLAGS="-g -O3" FCFLAGS="-g -O3 -m64 -I${MKLROOT}/mkl/include" --prefix=/opt/R --enable-R-shlib --enable-shared --enable-R-profiling --enable-memory-profiling --with-blas="$MKL" --with-lapack && \
   make && make install && cd /home && rm -Rf /home/R-* && \
   ln -s /opt/R/bin/R /usr/bin/R && \
-  ln -s /opt/R/bin/Rscript /usr/bin/Rscript
+  ln -s /opt/R/bin/Rscript /usr/bin/Rscript && \
+  cd /home && \
+  wget -q https://github.com/stevengj/nlopt/archive/v2.5.0.tar.gz && ls && \
+  tar -zxf v2.5.0.tar.gz && ls && \
+  cd nlopt-2.5.0 && \
+  cmake -DCMAKE_CXX_FLAGS="-g -O3 -fPIC" && make && make install && \
+  cd /home && rm -rf nlopt-* && \
+  wget --no-check-certificate -q https://cran.r-project.org/src/contrib/Archive/kinship/kinship_1.1.3.tar.gz && \
+  R CMD INSTALL --no-docs --no-demo --byte-compile kinship_1.1.3.tar.gz && \
+  rm kinship_1.1.3.tar.gz
