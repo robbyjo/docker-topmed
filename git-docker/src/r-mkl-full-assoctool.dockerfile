@@ -5,17 +5,7 @@
 FROM robbyjo/r-mkl-full:3.5.2-18.04-2019.1
 MAINTAINER Roby Joehanes <robbyjo@gmail.com>
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install cmake netcdf-bin libnetcdf-dev libxml2-dev ed libssh2-1-dev zip unzip libicu-dev libmariadb-client-lgpl-dev && \
-  cd /home && \
-  wget -q https://github.com/stevengj/nlopt/archive/v2.5.0.tar.gz && ls && \
-  tar -zxf v2.5.0.tar.gz && ls && \
-  cd nlopt-2.5.0 && \
-  cmake -DCMAKE_CXX_FLAGS="-g -O3 -fPIC" && make && make install && \
-  cd /home && rm -rf nlopt-* && \
-  wget --no-check-certificate -q https://cran.r-project.org/src/contrib/Archive/kinship/kinship_1.1.3.tar.gz && \
-  R CMD INSTALL --no-docs --no-demo --byte-compile kinship_1.1.3.tar.gz && \
-  rm kinship_1.1.3.tar.gz && \
-  cd /home && \
+RUN cd /home && \
   echo "pedigreemm,data.table,filematrix,kinship2,coxme,plyr,reshape2,ggplot2,SuppDists,gee,geepack,betareg,censReg,gamlss,MASS,mlogit,logistf,pscl,quantreg,robust,survival,truncreg,Zelig,ZeligChoice,ZeligEI,zoo,car,metafor,pls,pspearman,mice,mediation,moments,randomForest,lubridate,tidyr,sqldf,SKAT,seriation,R.utils,e1071,Hmisc,grImport,lavaan,bnlearn,devtools,doMC,lars,ncdf4,Matrix,foreign,openxlsx,zip,xfun,formatR,yaml,stringi,stringr,magrittr,glue,mime,markdown,highr,knitr,jsonlite,htmltools" | tr ',' '\n' > /home/pkgs.txt && \
   echo "pkgs <- read.csv('/home/pkgs.txt', header=FALSE, as.is=TRUE)[,1];" > instpkgs.R && \
   echo "print(pkgs);" >> instpkgs.R && \
