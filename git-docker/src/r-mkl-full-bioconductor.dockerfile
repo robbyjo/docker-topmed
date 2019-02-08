@@ -14,8 +14,8 @@ RUN cd /home && \
   echo "biocLite(pkgs, clean=TRUE, INSTALL_opts='--no-docs --no-demo --byte-compile');" >> instpkgs.R && \
   echo "biocLite(ask=FALSE, clean=TRUE, INSTALL_opts='--no-docs --no-demo --byte-compile');" >> instpkgs.R && \
   echo "cat('\n\n\n\n\n\nGet the latest greatest gdsfmt / SeqArray:\n');" >> instpkgs.R && \
-  echo "install_github("zhengxwen/gdsfmt");" >> instpkgs.R && \
-  echo "install_github("zhengxwen/SeqArray");" >> instpkgs.R && \
+  echo "install_github('zhengxwen/gdsfmt');" >> instpkgs.R && \
+  echo "install_github('zhengxwen/SeqArray');" >> instpkgs.R && \
   echo "cat('\n\n\n\n\n\nsessionInfo:\n');" >> instpkgs.R && \
   echo "print(sessionInfo());" >> instpkgs.R && \
   echo "cat('\n\n\n\n\n\nInstalled packages:\n');" >> instpkgs.R && \
