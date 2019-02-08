@@ -9,6 +9,7 @@ RUN cd /home && \
   echo "SNPRelate,GENESIS,argparser,survey,CompQuadForm,GGally,qvalue,annotate,WGCNA,limma,biomaRt,GWAF,preprocessCore,gdsfmt,SeqArray,SeqVarTools,sva,rhdf5,geneplotter,rtracklayer,genefilter,KEGGgraph,GSEABase,impute,edgeR,DESeq2,GEOquery,multtest,Biostrings,affy,minfi,pcaMethods,biovizBase,graph,BSgenome,BiocParallel,BiocInstaller,OrganismDbi,ExperimentHub,Biobase,ShortRead,IRanges,GenomicRanges,GenomicAlignments,GenomicFeatures,SummarizedExperiment,VariantAnnotation,DelayedArray,Gviz,RBGL,Rgraphviz,rmarkdown,BiocStyle,wateRmelon,githubinstall" | tr ',' '\n' > /home/pkgs.txt && \
   echo "pkgs <- read.csv('/home/pkgs.txt', header=FALSE, as.is=TRUE)[,1];" > instpkgs.R && \
   echo "print(pkgs);" >> instpkgs.R && \
+  echo "library(devtools);" >> instpkgs.R && \
   echo 'source("https://bioconductor.org/biocLite.R")' >> instpkgs.R && \
   echo "biocLite(pkgs, clean=TRUE, INSTALL_opts='--no-docs --no-demo --byte-compile');" >> instpkgs.R && \
   echo "biocLite(ask=FALSE, clean=TRUE, INSTALL_opts='--no-docs --no-demo --byte-compile');" >> instpkgs.R && \
