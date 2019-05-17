@@ -7,6 +7,9 @@ pkgs <- "SNPRelate,GENESIS,argparser,survey,CompQuadForm,GGally,qvalue,annotate,
   
 pkgs <- unlist(strsplit(pkgs, ","));
 print(pkgs);
+pkgs <- setdiff(pkgs, rownames(installed.packages()));
+print(paste0('Number of cores: ', parallel::detectCores()));
+options(Ncpus = parallel::detectCores());
 library(devtools);
 # Newer Bioconductor installation script
 if (!requireNamespace("BiocManager", quietly = TRUE))
