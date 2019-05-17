@@ -11,19 +11,19 @@ RUN sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list && \
   DEBIAN_FRONTEND=noninteractive apt-get -y install libcurl4-openssl-dev sysstat libssl-dev  cmake netcdf-bin libnetcdf-dev libxml2-dev ed libssh2-1-dev zip unzip libicu-dev libmariadb-client-lgpl-dev && \
   DEBIAN_FRONTEND=noninteractive apt-get -y remove libblas3 libblas-dev && \
 # Instead of relying on Ubuntu Trusty's libpcre 8.31 (which is deemed obsolete by R),
-# Try to install 8.42 manually
+# Try to install 8.43 manually
   sed -e "s/false/true/g" /etc/default/sysstat > /etc/default/sysstat.bak && \
   mv /etc/default/sysstat.bak /etc/default/sysstat && \
   /etc/init.d/sysstat start && \
-  cd /home && wget -q ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.42.tar.gz && \
-  tar -zxf pcre-8.42.tar.gz && cd pcre-8.42 && \
+  cd /home && wget -q ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.43.tar.gz && \
+  tar -zxf pcre-8.43.tar.gz && cd pcre-8.43 && \
   ./configure --enable-pcre16 --enable-pcre32 --enable-jit --enable-utf --enable-pcregrep-libz --enable-pcregrep-libbz2 --enable-pcretest-libreadline && \
   make && make install && cd /home && rm -rf /home/pcre* && \
   ln -sf /opt/intel/lib/intel64/libiomp*.so /usr/lib && cd /home && \
-  wget --no-check-certificate -q https://cran.r-project.org/src/base/R-3/R-3.5.2.tar.gz && \
-  tar -zxf R-3.5.2.tar.gz && \
-  cd /home/R-3.5.2 && \
-  export MKLROOT="/opt/intel/compilers_and_libraries_2019.1.144/linux" && \
+  wget --no-check-certificate -q https://cran.r-project.org/src/base/R-3/R-3.6.0.tar.gz && \
+  tar -zxf R-3.6.0.tar.gz && \
+  cd /home/R-3.6.0 && \
+  export MKLROOT="/opt/intel/compilers_and_libraries_2019.3.199/linux" && \
   export LD_LIBRARY_PATH="${MKLROOT}/tbb/lib/intel64_lin/gcc4.7:${MKLROOT}/compiler/lib/intel64_lin:${MKLROOT}/mkl/lib/intel64_lin" && \
   export LIBRARY_PATH="$LD_LIBRARY_PATH" && \
   export MIC_LD_LIBRARY_PATH="${MKLROOT}/tbb/lib/intel64_lin_mic:${MKLROOT}/compiler/lib/intel64_lin_mic:${MKLROOT}/mkl/lib/intel64_lin_mic" && \
