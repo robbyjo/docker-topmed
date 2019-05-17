@@ -13,7 +13,7 @@ options(Ncpus = parallel::detectCores());
 library(devtools);
 # Newer Bioconductor installation script
 if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager");
+    install.packages("BiocManager", repos="https://cloud.r-project.org/");
 BiocManager::install(ask=FALSE, clean=TRUE, INSTALL_opts='--no-docs --no-demo --byte-compile');
 cat('\n\n\n\n\n\nGet the latest greatest gdsfmt / SeqArray:\n');
 install_github('zhengxwen/gdsfmt');
