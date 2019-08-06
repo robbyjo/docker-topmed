@@ -14,7 +14,7 @@ library(devtools);
 # Newer Bioconductor installation script
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager", repos="https://cloud.r-project.org/");
-BiocManager::install(ask=FALSE, clean=TRUE, INSTALL_opts='--no-docs --no-demo --byte-compile');
+BiocManager::install(pkgs, ask=FALSE, clean=TRUE, INSTALL_opts='--no-docs --no-demo --byte-compile');
 cat('\n\n\n\n\n\nGet the latest greatest gdsfmt / SeqArray:\n');
 install_github('zhengxwen/gdsfmt');
 install_github('zhengxwen/SeqArray');
